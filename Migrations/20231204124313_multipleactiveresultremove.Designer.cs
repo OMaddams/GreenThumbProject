@@ -3,6 +3,7 @@ using GreenThumbProject.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumbProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204124313_multipleactiveresultremove")]
+    partial class multipleactiveresultremove
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,13 +101,13 @@ namespace GreenThumbProject.Migrations
                     b.HasData(
                         new
                         {
-                            PlantId = 3,
+                            PlantId = 1,
                             PlantDescription = "A beautiful aquatic plant, considered holy in some cultures",
                             PlantName = "Lotus"
                         },
                         new
                         {
-                            PlantId = 4,
+                            PlantId = 2,
                             PlantDescription = "Lilium is a genus of herbaceous flowering plants growing from bulbs, all with large prominent flowers. ",
                             PlantName = "Lily"
                         });

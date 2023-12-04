@@ -33,6 +33,10 @@ namespace GreenThumbProject.Database
             modelBuilder.Entity<GardenPlantModel>().HasKey(gd => new { gd.PlantId, gd.GardenId });
 
             modelBuilder.UseEncryption(_provider);
+
+            modelBuilder.Entity<UserModel>().HasData(new UserModel { UserId = 1, UserName = "admin", UserPassword = "admin", UserEmail = "admin@admin.admin" });
+
+            modelBuilder.Entity<PlantModel>().HasData(new PlantModel { PlantId = 3, PlantName = "Lotus", PlantDescription = "A beautiful aquatic plant, considered holy in some cultures" }, new PlantModel { PlantId = 4, PlantName = "Lily", PlantDescription = "Lilium is a genus of herbaceous flowering plants growing from bulbs, all with large prominent flowers. " });
         }
     }
 }

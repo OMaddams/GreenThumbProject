@@ -1,13 +1,8 @@
-﻿using System.Text;
+﻿using GreenThumbProject.Database;
+using GreenThumbProject.Managers;
+using GreenThumbProject.Models;
+using GreenThumbProject.Windows;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GreenThumbProject
 {
@@ -19,6 +14,37 @@ namespace GreenThumbProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string userName = txtUserName.Text.Trim();
+            string password = txtPassword.Password;
+
+            using (AppDbContext context = new AppDbContext())
+            {
+                GreenThumbUOW uow = new(context);
+                UserModel? model = await uow.UserRepository.GetByUsername(userName);
+                if (model != null)
+                {
+                    if (model.UserPassword == password)
+                    {
+                        UserManager.loggedInUser = model;
+                        PlantWindow plantWindow = new PlantWindow();
+                        plantWindow.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password was incorrect");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User doesn't exist");
+                }
+
+            }
         }
     }
 }

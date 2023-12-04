@@ -25,9 +25,9 @@
         <ListView Name="lstPlants" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3"/>
         <TextBox Name="txtPlantSearch" Grid.Row="4" Grid.Column="1" />
 
-        <Button Name="btnAddPlant" Grid.Column="2" Grid.Row="1" Content="Add"/>
-        <Button Name="btnDetails" Grid.Column="2" Grid.Row="2" Content="Details"/>
-        <Button Name="btnDelete" Grid.Column="2" Grid.Row="3" Content="Delete"/>
-        <Button Name="btnSearch" Grid.Column="2" Grid.Row="4" Content="Search"/>
+        <Button Name="btnAddPlant" Grid.Column="2" Grid.Row="1" Content="Add" Click="btnAddPlant_Click"/>
+        <Button Name="btnDetails" Grid.Column="2" Grid.Row="2" Content="Details" Click="btnDetails_Click"/>
+        <Button Name="btnDelete" Grid.Column="2" Grid.Row="3" Content="Delete" Click="btnDelete_Click"/>
+        <Button Name="btnSearch" Grid.Column="2" Grid.Row="4" Content="Search" Click="btnSearch_Click"/>
     </Grid>
 </Window>
