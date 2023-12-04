@@ -12,5 +12,10 @@ namespace GreenThumbProject.Models
 
         public int PlantId { get; set; }
         public PlantModel Plant { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return InstructionDescription;
+        }
     }
 }

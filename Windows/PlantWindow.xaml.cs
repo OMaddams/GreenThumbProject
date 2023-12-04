@@ -42,6 +42,20 @@ namespace GreenThumbProject.Windows
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
+            PlantModel? selectedPlant = null;
+
+            if (lstPlants.SelectedItem != null)
+            {
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                selectedPlant = (PlantModel)selectedItem.Tag;
+            }
+
+            if (selectedPlant != null)
+            {
+
+                PlantDetailsWindow detailsWindow = new PlantDetailsWindow(selectedPlant);
+                detailsWindow.ShowDialog();
+            }
 
         }
 

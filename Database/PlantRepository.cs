@@ -39,5 +39,6 @@ namespace GreenThumbProject.Database
                 await Delete(plantToDelete);
             }
         }
+
     }
 }
