@@ -1,4 +1,5 @@
 ﻿using GreenThumbProject.Database;
+using GreenThumbProject.Managers;
 using GreenThumbProject.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -119,12 +120,17 @@ namespace GreenThumbProject.Windows
 
         private void btnSignout_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            UserManager.loggedInUser = null;
+            mainWindow.Show();
+            Close();
         }
 
         private void btnGarden_Click(object sender, RoutedEventArgs e)
         {
-
+            MyGardenWindow myGardenWindow = new MyGardenWindow();
+            myGardenWindow.Show();
+            Close();
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
-        Title="PlantDetailsWindow" Height="500" Width="500">
+        Title="PlantDetailsWindow" Height="500" Width="350">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -18,20 +18,20 @@
             <RowDefinition Height="20"/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Name" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="18"/>
-        <TextBox Name="txtName" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" BorderThickness="0" FontSize="18"/>
-        <Label Content="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="18"/>
-        <TextBox Name="txtDescription" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" BorderThickness="0" FontSize="18" TextWrapping="WrapWithOverflow"/>
-        <Label Content="Instructions" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Center" FontSize="18"/>
-        <ListView Name="lstInstructions" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" BorderThickness="0" FontSize="18" />
+        <Label Content="Name" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
+        <TextBox Name="txtName" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" BorderThickness="0" FontSize="18" Width="150"/>
+        <Label Content="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="16"/>
+        <TextBox Name="txtDescription" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"  BorderThickness="0" Width="150" FontSize="16" TextWrapping="Wrap"/>
+        <Label Content="Instructions" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Center" FontSize="16"/>
+        <ListView Name="lstInstructions" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"  IsEnabled="False" IsManipulationEnabled="True" Width="150" BorderThickness="0" FontSize="16" />
 
-        <Button Name="btnAdd" Content="Add To Garden" Grid.Column="1" Grid.Row="4" />
-        <Button Name="btnReturn" Content="Return" Grid.Column="2" Grid.Row="4" />
+        <Button Name="btnAdd" Content="Add To Garden" Grid.Column="1" Grid.Row="4" Width="150" Height="50" FontSize="18" Click="btnAdd_Click"/>
+        <Button Name="btnReturn" Content="Return" Grid.Column="2" Grid.Row="4" Width="150" Height="50" FontSize="18" Click="btnReturn_Click" />
 
     </Grid>
 </Window>

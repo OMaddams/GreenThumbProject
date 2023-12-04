@@ -1,4 +1,5 @@
 ﻿using GreenThumbProject.Database;
+using GreenThumbProject.Managers;
 using GreenThumbProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
@@ -39,6 +40,34 @@ namespace GreenThumbProject.Windows
             }
 
 
+
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private async void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            using (AppDbContext context = new())
+            {
+                GreenThumbUOW uow = new(context);
+                if (UserManager.loggedInUser == null)
+                {
+                    return;
+                }
+                int userId = UserManager.loggedInUser.UserId;
+                GardenModel? garden = await uow.GardenRepository.GetByUserId(userId);
+                if (garden == null)
+                {
+                    return;
+                }
+                GardenPlantModel gardenPlantModel = new() { GardenId = garden.GardenId, PlantId = PlantModel.PlantId };
+                await uow.GardenPlantRepository.AddAsync(gardenPlantModel);
+                await uow.Complete();
+            }
+            Close();
 
         }
     }
