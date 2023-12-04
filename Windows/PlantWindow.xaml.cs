@@ -116,5 +116,15 @@ namespace GreenThumbProject.Windows
             }
 
         }
+
+        private void btnSignout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGarden_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

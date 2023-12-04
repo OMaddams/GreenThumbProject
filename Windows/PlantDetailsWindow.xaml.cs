@@ -2,6 +2,7 @@
 using GreenThumbProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace GreenThumbProject.Windows
 {
@@ -30,7 +31,10 @@ namespace GreenThumbProject.Windows
                 var instructions = plant.Instructions.ToList();
                 foreach (var instruction in instructions)
                 {
-                    txtInstructions.Text += instruction.ToString() + " ";
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = instruction;
+                    item.Content = instruction.ToString();
+                    lstInstructions.Items.Add(item);
                 }
             }
 
