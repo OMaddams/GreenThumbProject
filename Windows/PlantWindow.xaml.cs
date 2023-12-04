@@ -68,8 +68,38 @@ namespace GreenThumbProject.Windows
             FillListAsync();
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+
+        //ADD BETTER SEARCH FUNCTIONALITY IF THERE IS TIME
+        //USING  ON CHANGE TEXTFIELD :: CONTAINS
+        private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            string search = txtPlantSearch.Text;
+            if (string.IsNullOrEmpty(search))
+            {
+                FillListAsync();
+                return;
+            }
+
+            using (AppDbContext context = new())
+            {
+                GreenThumbUOW uow = new(context);
+
+                PlantModel? searchedPlant = await uow.PlantRepository.GetByNameAsync(search);
+
+                if (searchedPlant != null)
+                {
+                    lstPlants.Items.Clear();
+                    ListViewItem lstItem = new();
+                    lstItem.Tag = searchedPlant;
+                    lstItem.Content = searchedPlant.PlantName;
+                    lstPlants.Items.Add(lstItem);
+                }
+                else
+                {
+                    MessageBox.Show("Plant not found");
+                }
+
+            }
 
         }
     }
