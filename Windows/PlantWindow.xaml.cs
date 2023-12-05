@@ -1,6 +1,7 @@
 ﻿using GreenThumbProject.Database;
 using GreenThumbProject.Managers;
 using GreenThumbProject.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -133,6 +134,38 @@ namespace GreenThumbProject.Windows
             MyGardenWindow myGardenWindow = new MyGardenWindow();
             myGardenWindow.Show();
             Close();
+        }
+
+        private async void txtPlantSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string search = txtPlantSearch.Text;
+            if (string.IsNullOrEmpty(search))
+            {
+                FillListAsync();
+                return;
+            }
+
+            using (AppDbContext context = new())
+            {
+                GreenThumbUOW uow = new(context);
+
+                var searchedPlants = await context.Plants.Where(p => p.PlantName.Contains(search)).ToListAsync();
+
+                if (searchedPlants != null)
+                {
+                    lstPlants.Items.Clear();
+                    foreach (PlantModel searchedPlant in searchedPlants)
+                    {
+
+                        ListViewItem lstItem = new();
+                        lstItem.Tag = searchedPlant;
+                        lstItem.Content = searchedPlant.PlantName;
+                        lstPlants.Items.Add(lstItem);
+                    }
+
+                }
+
+            }
         }
     }
 }
