@@ -24,6 +24,6 @@
         </Grid.RowDefinitions>
 
         <ListView Name="lstGarden" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center"/>
-        <Button Name="btnReturn" Grid.Row="2" Grid.Column="1" Content="Return"/>
+        <Button Name="btnReturn" Grid.Row="2" Grid.Column="1" Content="Return" Click="btnReturn_Click"/>
     </Grid>
 </Window>
