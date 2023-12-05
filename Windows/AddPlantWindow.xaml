@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="400" Width="400"
-        WindowStartupLocation="CenterOwner"
+        Title="AddPlantWindow" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
         Background="#F7FEE7">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,23 +21,31 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Label Content="Name of plant" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-        
-        <TextBox Name="txtName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" FontSize="18"/>
+        <Label Content="Name of plant" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Foreground="#15803D"/>
 
-        <Label Content="Add Instruction" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Name="txtName" Grid.Row="2" Grid.Column="1" Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
-        <TextBox Name="txtInstruction" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" FontSize="18"/>
+        <Label Content="Description" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Foreground="#15803D"/>
 
-        
+        <TextBox Name="txtDescription" Grid.Row="4" Grid.Column="1"  Margin="5"  Background="#ECFCCB" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
-        <ListView Name="lstInstructions" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" />
+        <Label Content="Add Instruction" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Foreground="#15803D"/>
 
-        <Button Name="btnAddIns" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"  Content="Add Instruction" Width="150" Height="50" FontSize="18" Click="btnAddIns_Click"/>
-        <Button Name="btnRemoveIns" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"  Content="Delete Instruction" Width="150" Height="50" FontSize="18" Click="btnRemoveIns_Click"/>
-        <Button Name="btnSave" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"  Content="Save" Width="150" Height="50" FontSize="18" Click="btnSave_Click"/>
-        <Button Name="btnCancel" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"  Content="Cancel" Width="150" Height="50" FontSize="18" Click="btnCancel_Click"/>
+        <TextBox Name="txtInstruction" Grid.Row="6" Grid.Column="1"  Margin="5"  FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+
+
+        <ListView Name="lstInstructions" Grid.Row="1" Grid.Column="2" Grid.RowSpan="6" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" Margin="5"/>
+
+        <Button Name="btnAddIns" Grid.Row="7" Grid.Column="1"   Content="Add Instruction"  Click="btnAddIns_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnRemoveIns" Grid.Row="7" Grid.Column="2"   Content="Delete Instruction"  Click="btnRemoveIns_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnSave" Grid.Row="8" Grid.Column="1"   Content="Save"   Click="btnSave_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnCancel" Grid.Row="8" Grid.Column="2"   Content="Cancel"   Click="btnCancel_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
     </Grid>
 </Window>

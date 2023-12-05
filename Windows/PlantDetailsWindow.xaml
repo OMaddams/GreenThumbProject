@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
-        Title="PlantDetailsWindow" Height="500" Width="400" Background="#F7FEE7" WindowStartupLocation="CenterScreen">
+        Title="Plant Details" Height="500" Width="400" Background="#F7FEE7" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

@@ -16,6 +16,18 @@ namespace GreenThumbProject.Windows
 
         private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            if (txtUserName.Text.Trim().Count() <= 3)
+            {
+                MessageBox.Show("Username is too short");
+                return;
+            }
+            if (txtPassword.Password.Trim().Count() < 5)
+            {
+                MessageBox.Show("Password is too short");
+                txtPassword.Password = null;
+                return;
+            }
+
             using (AppDbContext context = new())
             {
                 GreenThumbUOW uow = new(context);
@@ -28,7 +40,7 @@ namespace GreenThumbProject.Windows
                     return;
                 }
 
-                UserModel model = new UserModel() { UserName = txtUserName.Text, UserPassword = txtPassword.Password, Garden = new GardenModel { } };
+                UserModel model = new UserModel() { UserName = txtUserName.Text, UserPassword = txtPassword.Password, UserEmail = txtEmail.Text, Garden = new GardenModel { } };
 
                 await context.Users.AddAsync(model);
                 await uow.Complete();

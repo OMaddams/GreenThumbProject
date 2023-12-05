@@ -46,5 +46,11 @@ namespace GreenThumbProject.Windows
             plantWindow.Show();
             Close();
         }
+
+        //TODO
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

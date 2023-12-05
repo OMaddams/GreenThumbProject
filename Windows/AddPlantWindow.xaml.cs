@@ -71,7 +71,7 @@ namespace GreenThumbProject.Windows
             {
                 GreenThumbUOW uow = new(context);
 
-                PlantModel plantModel = new PlantModel() { PlantName = txtName.Text };
+                PlantModel plantModel = new PlantModel() { PlantName = txtName.Text, PlantDescription = txtDescription.Text };
 
                 await context.Plants.AddAsync(plantModel);
                 await uow.Complete();

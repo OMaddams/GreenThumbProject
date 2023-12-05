@@ -5,26 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
-        Title="MyGardenWindow" Height="450" Width="800"
-        Background="#F7FEE7">
+        Title="My Garden" Height="500" Width="400" Background="#F7FEE7" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             
+            <ColumnDefinition />
             <ColumnDefinition />
 
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
             
             
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <ListView Name="lstGarden" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center"/>
-        <Button Name="btnReturn" Grid.Row="2" Grid.Column="1" Content="Return" Click="btnReturn_Click"/>
+        <ListView Name="lstGarden" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" Margin="5"/>
+        <Button Name="btnRemove" Grid.Row="2" Grid.Column="1" Content="Remove" Click="btnRemove_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnReturn" Grid.Row="2" Grid.Column="2" Content="Return" Click="btnReturn_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
     </Grid>
 </Window>
