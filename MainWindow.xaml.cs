@@ -46,5 +46,12 @@ namespace GreenThumbProject
 
             }
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            Close();
+        }
     }
 }

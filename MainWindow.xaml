@@ -28,7 +28,7 @@
         <TextBox Name="txtUserName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="24"/>
         <PasswordBox Name="txtPassword" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="24"/>
         <Button Name="btnLogin" Grid.Column="1" Grid.Row="4" Content="Login" Click="btnLogin_Click"/>
-        <Button Name="btnRegister" Grid.Column="2" Grid.Row="4" Content="Register"/>
+        <Button Name="btnRegister" Grid.Column="2" Grid.Row="4" Content="Register" Click="btnRegister_Click"/>
 
     </Grid>
 </Window>
