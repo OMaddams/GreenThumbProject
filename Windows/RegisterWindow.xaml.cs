@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenThumbProject.Database;
+using GreenThumbProject.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumbProject.Windows
 {
@@ -22,6 +12,38 @@ namespace GreenThumbProject.Windows
         public RegisterWindow()
         {
             InitializeComponent();
+        }
+
+        private async void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            using (AppDbContext context = new())
+            {
+                GreenThumbUOW uow = new(context);
+
+                var user = await uow.UserRepository.GetByUsername(txtUsername.Text);
+
+                if (user != null)
+                {
+                    MessageBox.Show("User already exists");
+                    return;
+                }
+
+                UserModel model = new UserModel() { UserName = txtUsername.Text, UserPassword = txtPassword.Password, Garden = new GardenModel { } };
+
+                await context.Users.AddAsync(model);
+                await uow.Complete();
+            }
+            MessageBox.Show("User created");
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }
