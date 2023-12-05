@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400"
-        WindowStartupLocation="CenterScreen">
+        Title="Login" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7FEE7">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -20,15 +21,22 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Image Source="G:\SchoolRepos\GreenThumbProject\GreenThumbProject\Images\green-thumb-logo.png" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
 
-        <TextBox Name="txtUserName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="24"/>
-        <PasswordBox Name="txtPassword" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="24"/>
-        <Button Name="btnLogin" Grid.Column="1" Grid.Row="4" Content="Login" Click="btnLogin_Click"/>
-        <Button Name="btnRegister" Grid.Column="2" Grid.Row="4" Content="Register" Click="btnRegister_Click"/>
+        <Label Margin="5" Content="Username" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#15803D" />
+        <TextBox Margin="5" Name="txtUserName" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"  Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+
+        <Label Margin="5" Content="Password" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#15803D" />
+        <PasswordBox Margin="5" Name="txtPassword" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+
+        <Button Name="btnLogin" Grid.Column="1" Grid.Row="7" Content="Login" Click="btnLogin_Click" Background="#ECFCCB" Margin="5" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnRegister" Grid.Column="2" Grid.Row="7" Content="Register" Click="btnRegister_Click" Margin="5" Background="#ECFCCB" FontSize="18" BorderBrush="#BEF264" Foreground="#15803D"/>
 
     </Grid>
 </Window>

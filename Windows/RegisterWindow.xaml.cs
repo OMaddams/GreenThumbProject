@@ -20,7 +20,7 @@ namespace GreenThumbProject.Windows
             {
                 GreenThumbUOW uow = new(context);
 
-                var user = await uow.UserRepository.GetByUsername(txtUsername.Text);
+                var user = await uow.UserRepository.GetByUsername(txtUserName.Text);
 
                 if (user != null)
                 {
@@ -28,7 +28,7 @@ namespace GreenThumbProject.Windows
                     return;
                 }
 
-                UserModel model = new UserModel() { UserName = txtUsername.Text, UserPassword = txtPassword.Password, Garden = new GardenModel { } };
+                UserModel model = new UserModel() { UserName = txtUserName.Text, UserPassword = txtPassword.Password, Garden = new GardenModel { } };
 
                 await context.Users.AddAsync(model);
                 await uow.Complete();

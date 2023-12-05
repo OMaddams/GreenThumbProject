@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
-        Title="PlantWindow" Height="350" Width="550">
+        Title="Plants" Height="350" Width="550" Background="#F7FEE7"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -23,15 +23,15 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <ListView Name="lstPlants" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" FontSize="18"/>
-        <TextBox Name="txtPlantSearch" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" ToolTip="Search for nothing to reset list" TextChanged="txtPlantSearch_TextChanged" />
+        <ListView Name="lstPlants" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" Margin="5"/>
+        <TextBox Name="txtPlantSearch" Grid.Row="5" Grid.Column="1" Text="Search.." VerticalContentAlignment="Center" Margin="5" GotFocus="txtPlantSearch_GotFocus" LostFocus="txtPlantSearch_LostFocus" HorizontalContentAlignment="Center" FontSize="18" ToolTip="Search for nothing to reset list" TextChanged="txtPlantSearch_TextChanged" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D" />
 
-        <Button Name="btnAddPlant" Grid.Column="2" Grid.Row="1" Content="Add" Click="btnAddPlant_Click" Width="150" Height="50" FontSize="18"/>
-        <Button Name="btnDetails" Grid.Column="2" Grid.Row="2" Content="Details" Click="btnDetails_Click" Width="150" Height="50" FontSize="18"/>
-        <Button Name="btnDelete" Grid.Column="2" Grid.Row="3" Content="Delete" Click="btnDelete_Click" Width="150" Height="50" FontSize="18"/>
-        <Button Name="btnSearch" Grid.Column="2" Grid.Row="4" Content="Search" Click="btnSearch_Click" Width="150" Height="50" FontSize="18" ToolTip="Search for nothing to reset list"/>
-        <Button Name="btnSignout" Grid.Column="2" Grid.Row="5" Content="Signout" Click="btnSignout_Click" Width="150" Height="50" FontSize="18" />
-        <Button Name="btnGarden" Grid.Column="1" Grid.Row="5" Content="My Garden" Click="btnGarden_Click"  Width="150" Height="50" FontSize="18" HorizontalAlignment="Left"/>
+        <Button Name="btnAddPlant" Grid.Column="2" Grid.Row="1" Content="Add" Click="btnAddPlant_Click" Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnDetails" Grid.Column="2" Grid.Row="2" Content="Details" Click="btnDetails_Click" Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnDelete" Grid.Column="2" Grid.Row="3" Content="Delete" Click="btnDelete_Click" Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <!--<Button Name="btnSearch" Grid.Column="2" Grid.Row="4" Content="Search" Click="btnSearch_Click" Width="150" Height="50" FontSize="18" ToolTip="Search for nothing to reset list"/> OLD SEARCH BUTTON-->
+        <Button Name="btnGarden" Grid.Column="2" Grid.Row="4" Content="My Garden" Click="btnGarden_Click"  Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
+        <Button Name="btnSignout" Grid.Column="2" Grid.Row="5" Content="Signout" Click="btnSignout_Click" Margin="5" FontSize="18" Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>
         
     </Grid>
 </Window>

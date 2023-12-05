@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:GreenThumbProject.Windows"
         mc:Ignorable="d"
         Title="AddPlantWindow" Height="400" Width="400"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        Background="#F7FEE7">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

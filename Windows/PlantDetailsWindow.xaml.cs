@@ -27,7 +27,7 @@ namespace GreenThumbProject.Windows
             using (AppDbContext context = new())
             {
                 var plant = context.Plants.Include(p => p.Instructions).First(p => p.PlantName == PlantModel.PlantName);
-                txtName.Text = PlantModel.PlantName;
+                txtName.Content = PlantModel.PlantName;
                 txtDescription.Text = PlantModel.PlantDescription;
                 var instructions = plant.Instructions.ToList();
                 foreach (var instruction in instructions)

@@ -15,7 +15,7 @@ namespace GreenThumbProject.Windows
         public PlantWindow()
         {
             InitializeComponent();
-            FillListAsync();
+
         }
 
         private async void FillListAsync()
@@ -87,39 +87,40 @@ namespace GreenThumbProject.Windows
         }
 
 
-        //ADD BETTER SEARCH FUNCTIONALITY IF THERE IS TIME
-        //USING  ON CHANGE TEXTFIELD :: CONTAINS
-        private async void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            string search = txtPlantSearch.Text;
-            if (string.IsNullOrEmpty(search))
-            {
-                FillListAsync();
-                return;
-            }
+        //TODO :ADD BETTER SEARCH FUNCTIONALITY IF THERE IS TIME
+        //USING  ON CHANGE TEXTFIELD :: CONTAINS 
+        // DONE!
+        /* private async void btnSearch_Click(object sender, RoutedEventArgs e)
+         {
+             string search = txtPlantSearch.Text;
+             if (string.IsNullOrEmpty(search))
+             {
+                 FillListAsync();
+                 return;
+             }
 
-            using (AppDbContext context = new())
-            {
-                GreenThumbUOW uow = new(context);
+             using (AppDbContext context = new())
+             {
+                 GreenThumbUOW uow = new(context);
 
-                PlantModel? searchedPlant = await uow.PlantRepository.GetByNameAsync(search);
+                 PlantModel? searchedPlant = await uow.PlantRepository.GetByNameAsync(search);
 
-                if (searchedPlant != null)
-                {
-                    lstPlants.Items.Clear();
-                    ListViewItem lstItem = new();
-                    lstItem.Tag = searchedPlant;
-                    lstItem.Content = searchedPlant.PlantName;
-                    lstPlants.Items.Add(lstItem);
-                }
-                else
-                {
-                    MessageBox.Show("Plant not found");
-                }
+                 if (searchedPlant != null)
+                 {
+                     lstPlants.Items.Clear();
+                     ListViewItem lstItem = new();
+                     lstItem.Tag = searchedPlant;
+                     lstItem.Content = searchedPlant.PlantName;
+                     lstPlants.Items.Add(lstItem);
+                 }
+                 else
+                 {
+                     MessageBox.Show("Plant not found");
+                 }
 
-            }
+             }
 
-        }
+         }*/
 
         private void btnSignout_Click(object sender, RoutedEventArgs e)
         {
@@ -139,7 +140,7 @@ namespace GreenThumbProject.Windows
         private async void txtPlantSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             string search = txtPlantSearch.Text;
-            if (string.IsNullOrEmpty(search))
+            if (string.IsNullOrEmpty(search) || search == "Search..")
             {
                 FillListAsync();
                 return;
@@ -165,6 +166,23 @@ namespace GreenThumbProject.Windows
 
                 }
 
+            }
+        }
+
+
+        private void txtPlantSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPlantSearch.Text == "Search..")
+            {
+                txtPlantSearch.Text = string.Empty;
+            }
+        }
+
+        private void txtPlantSearch_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPlantSearch.Text == string.Empty)
+            {
+                txtPlantSearch.Text = "Search..";
             }
         }
     }
