@@ -38,7 +38,9 @@ namespace GreenThumbProject.Windows
 
         private void btnAddPlant_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPlantWindow addPlantWindow = new AddPlantWindow();
+            addPlantWindow.Show();
+            Close();
         }
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
