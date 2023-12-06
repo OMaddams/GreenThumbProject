@@ -27,7 +27,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Image Source="G:\SchoolRepos\GreenThumbProject\GreenThumbProject\Images\green-thumb-logo.png" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
+        <Image Source="/GreenThumbProject;component/Images/green-thumb-logo.png" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
         
         <Label Content="Username" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#15803D" />
         <TextBox Name="txtUserName" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"  Background="#ECFCCB" BorderBrush="#BEF264" Foreground="#15803D"/>

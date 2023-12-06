@@ -14,7 +14,10 @@ namespace GreenThumbProject
         public MainWindow()
         {
             InitializeComponent();
+
         }
+
+
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
