@@ -63,6 +63,20 @@ namespace GreenThumbProject.Windows
                 {
                     return;
                 }
+                var gardenPlant = await context.GardenPlant.Where(gp => gp.GardenId == garden.GardenId).ToListAsync();
+                bool isPlantInGarden = false;
+                foreach (var gp in gardenPlant)
+                {
+                    if (gp.PlantId == PlantModel.PlantId)
+                    {
+                        isPlantInGarden = true; break;
+                    }
+                }
+                if (isPlantInGarden)
+                {
+                    MessageBox.Show("Garden already contains plant");
+                    return;
+                }
                 GardenPlantModel gardenPlantModel = new() { GardenId = garden.GardenId, PlantId = PlantModel.PlantId };
                 await uow.GardenPlantRepository.AddAsync(gardenPlantModel);
                 await uow.Complete();
