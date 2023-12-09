@@ -63,6 +63,7 @@ namespace GreenThumbProject.Windows
 
         }
 
+
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             PlantModel? selectedPlant = null;
@@ -86,7 +87,7 @@ namespace GreenThumbProject.Windows
             FillListAsync();
         }
 
-
+        // OLD SEARCH CODE, USELESS
         //TODO :ADD BETTER SEARCH FUNCTIONALITY IF THERE IS TIME
         //USING  ON CHANGE TEXTFIELD :: CONTAINS 
         // DONE!
@@ -122,6 +123,7 @@ namespace GreenThumbProject.Windows
 
          }*/
 
+        //Removes the logged in user from the usermanager and opens the login window
         private void btnSignout_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -130,6 +132,7 @@ namespace GreenThumbProject.Windows
             Close();
         }
 
+
         private void btnGarden_Click(object sender, RoutedEventArgs e)
         {
             MyGardenWindow myGardenWindow = new MyGardenWindow();
@@ -137,6 +140,9 @@ namespace GreenThumbProject.Windows
             Close();
         }
 
+        // Check if the text is the placeholder and if it is, show the entire list. Otherwise return and show a list with all the plants with the names that contains the search term.
+        // This results a nice and responsive search bar, and also enables the user to search partial terms and get all results, ex 
+        // Yellow tulip and blue tulip or w/e will both appear even if the user only searched for tulip or even just "t"
         private async void txtPlantSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             string search = txtPlantSearch.Text;
@@ -170,6 +176,9 @@ namespace GreenThumbProject.Windows
         }
 
 
+
+        // These 2 methods ensures that there is placeholder text in the searchbar that only appears when the field is empty so that the user keeps the search results even
+        //When they deselect it. 
         private void txtPlantSearch_GotFocus(object sender, RoutedEventArgs e)
         {
             if (txtPlantSearch.Text == "Search..")

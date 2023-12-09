@@ -67,9 +67,48 @@ namespace GreenThumbProject.Windows
 
         private async void btnSave_Click(object sender, RoutedEventArgs e)
         {
+
+
+
+            if (txtName.Text == string.Empty)
+            {
+                MessageBox.Show("The plant needs a name ", "Error");
+                return;
+            }
+
+            if (txtDescription.Text == string.Empty)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show("This plant will have no description, are you sure?", "Description", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (messageBoxResult == MessageBoxResult.No)
+                {
+                    return;
+                }
+            }
+            if (lstInstructions.Items.Count == 0)
+            {
+
+                MessageBoxResult messageBoxResult = MessageBox.Show("This plant doesn't have any instructions are you sure you want to add it?", "Instructions", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (messageBoxResult == MessageBoxResult.No)
+                {
+                    return;
+                }
+
+
+            }
+
+
+
             using (AppDbContext context = new())
             {
+
+
+
                 GreenThumbUOW uow = new(context);
+                if (await uow.PlantRepository.GetByNameAsync(txtName.Text) != null)
+                {
+                    MessageBox.Show("Plant already exists", "Error");
+                    return;
+                }
 
                 PlantModel plantModel = new PlantModel() { PlantName = txtName.Text, PlantDescription = txtDescription.Text };
 
