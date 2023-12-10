@@ -2,6 +2,7 @@
 
 WPF project made as a final assignment for the course database developement with C# and Entity Framework Core
 
+# CHANGE ENCRYPT KEY PATH TO MAKE IT WORK
 # Sammanfattning och analys
 
 Programmet är utvecklat för ett bolag fiktivt som erbjuder ett digitalt hjälpmedel för människor som är intresserade av trädgårdsodling.
@@ -17,3 +18,7 @@ Appen använder sig av en statisk class som innehåller och håller koll på den
 
 Jag lärde mig och tog även användning av hur man deklarerar bilder och liknande som resurser och hur man sedan använder appens lokala map som utgångspunkt för image source vilket gör så att oavsett vem som laddar ner appen så fungerar och visas bilden som den ska utan att man behöver ända några paths på egenhand.
 
+Extra funktioner som jag kunnat tänka mig lägga till är, förmågan att ta bort plantor från sin garden, ändra sitt lösenord och email samt ändra uppgifter i plant.
+Den virtuella trädgården hade också varit kul att försöka, min första tanke på hur man hade kunnat åstakomma detta hade varit ett grid av buttons och en combobox med alla plantorna som är tillagda i användarens, när användaren klickar på en av knapparna i grid:et så ändras knappens text till plantans namn, om den knappen redan har samma planta som text så går den tillbaka till tom. Om man skulle kunna spara detta hade jag nog gjort en ny tabell typ GardenLayout som är dependet/child av garden, där jag hade använt column + row + gardenId som Key.
+
+Förövrigt är jag nöjd med hur min sökfunktion och sökbar fungerar, då jag tycker den är väldigt responsive och det va en av mina tidiga förbättringar i projektet istället för att använda mig utav en knapp. Projektet har varit en bra möjlighet att återanvända lärdommar från den förra kursen samt krystallisera det jag lärt mig i denna på ett bra vis.
